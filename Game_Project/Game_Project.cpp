@@ -11,9 +11,10 @@ using namespace std;
 
 int main()
 {
+    system("mode con cols=180 lines=50");
     /*setlocale(LC_ALL, "Rus");*/
     game_map test_map;
-    player_car_type_2 test_car;
+    player_car_type_1 test_car;
     game_road test_road;
     test_road.create_road(test_map);
     test_car.create_car(test_map);
