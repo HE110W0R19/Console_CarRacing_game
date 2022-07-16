@@ -1,16 +1,13 @@
 ﻿#include <iostream>
-#include <string>
-#include <vector>
 #include <conio.h>
 #include <stdio.h>
-#include <random>
 #include <Windows.h>
 #include "Map_Settings.h"
 #include "Cars_Settings.h"
 
 using namespace std;
 
-void setcur(int x, int y)//установка курсора на позицию  x y 
+void setcur(int x, int y)//screan clear
 {
     COORD coord;
     coord.X = x;
@@ -24,11 +21,14 @@ int main()
     system("mode con cols=180 lines=50");
     uint8_t car_move_cord_x = 72;
     uint8_t car_move_cord_y = 30;
+
     game_map test_map;
-    player_car_type_1 test_car;
+    player_car_type_2 test_car;
     game_road test_road;
+
     test_road.create_road(test_map);
     test_car.create_car(test_map);
+
     while (true) 
     {   
         if (_kbhit())
@@ -42,7 +42,7 @@ int main()
                 --car_move_cord_y;
             if (key == 's' || key == 'S')
                 ++car_move_cord_y;
-        }
+        }       
         test_car.game_car_move(test_map, test_road,
             car_move_cord_x, car_move_cord_y);
         game_map_draw(test_map);

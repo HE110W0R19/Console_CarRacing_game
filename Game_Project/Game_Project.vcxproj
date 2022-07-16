@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Cars_Settings.cpp" />
     <ClCompile Include="Game_Project.cpp" />
   </ItemGroup>
   <ItemGroup>
