@@ -49,7 +49,7 @@ public:
 
 class game_road
 {
-protected:
+public:
     uint8_t spawn_cord_x = 10;
     uint8_t spawn_cord_y = 2;
 public:
@@ -75,16 +75,9 @@ public:
                     _road[i][j] = ' ';             
             }
         }
-        for (uint8_t i = 0, y = spawn_cord_y; i < road_y_size; ++i, ++y)
-        {
-            for (uint8_t j = 0, x = spawn_cord_x; j < road_x_size; ++j, ++x)
-            {
-                tmp_map._map[y][x] = _road[i][j];
-            }
-        }
     }
 };
-
+//
 void game_map_draw(game_map& tmp)
 {
     for (uint8_t i = 0; i < map_y_size; ++i)
@@ -92,18 +85,6 @@ void game_map_draw(game_map& tmp)
         for (uint8_t j = 0; j < map_x_size; ++j)
         {
             cout << tmp._map[i][j];
-        }
-        cout << endl;
-    }
-}
-
-void game_road_draw(game_road& tmp)
-{
-    for (uint8_t i = 0; i < road_y_size; ++i)
-    {
-        for (uint8_t j = 0; j < road_x_size; ++j)
-        {
-            cout << tmp._road[i][j];
         }
         cout << endl;
     }
