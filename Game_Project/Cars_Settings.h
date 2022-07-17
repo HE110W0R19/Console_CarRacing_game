@@ -16,7 +16,7 @@ protected:
 public:
     vector<vector<char> > _car;
     player_car_type_1();   
-    virtual void create_car(game_map& tmp_map);      
+    void create_car(game_map& tmp_map);      
     virtual void game_car_move(game_map& tmp_map, game_road& tmp_road,
         uint8_t _car_cord_x, uint8_t _car_cord_y);
 };
@@ -32,7 +32,7 @@ inline player_car_type_1::player_car_type_1()
     }
 }
 
-void player_car_type_1::create_car(game_map& tmp_map)
+inline void player_car_type_1::create_car(game_map& tmp_map)
 {
     //create car texture
     for (uint8_t i = 0; i < car_y_size; ++i)
