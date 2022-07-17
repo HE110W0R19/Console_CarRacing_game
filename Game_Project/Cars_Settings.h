@@ -23,11 +23,11 @@ public:
 
 inline player_car_type_1::player_car_type_1()
 {
-    for (size_t i = 0; i < car_y_size; ++i)
+    for (uint8_t i = 0; i < car_y_size; ++i)
     {
         std::vector<char> temp;
-        for (size_t j = 0; j < car_x_size; ++j)
-            temp.push_back(rand() % 666);
+        for (uint8_t j = 0; j < car_x_size; ++j)
+            temp.push_back(' ');
         _car.push_back(temp);
     }
 }
@@ -68,13 +68,13 @@ void player_car_type_1::create_car(game_map& tmp_map)
 inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_road,
     uint8_t _car_cord_x, uint8_t _car_cord_y)
 {
-    for (int i = 0; i < road_x_size; i++)
+    for (uint8_t  i = 0; i < road_x_size; i++)
     {
         char t = tmp_road._road[1][i];
-        int j;
+        uint8_t j;
         for (j = 0; j < road_y_size - 1; j++)
         {
-            tmp_road._road[j][i] = tmp_road._road[j + 1][i];
+            tmp_road._road[j][i] = tmp_road._road[j+1][i];
         }
         tmp_road._road[j][i] = t;
     }

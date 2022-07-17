@@ -18,7 +18,7 @@ void setcur(int x, int y)//screan clear
 int main()
 {
     /*setlocale(LC_ALL, "Rus");*/
-    system("mode con cols=180 lines=50");
+    system("mode con cols=180 lines=50");//start console window size
     uint8_t car_move_cord_x = 72;
     uint8_t car_move_cord_y = 30;
 

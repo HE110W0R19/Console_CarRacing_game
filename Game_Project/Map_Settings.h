@@ -23,7 +23,7 @@ public:
         {
             std::vector<char> temp;
             for (size_t j = 0; j < map_x_size; ++j)
-                temp.push_back(rand() % 666);
+                temp.push_back(' ');
             _map.push_back(temp);
         }
 
@@ -56,11 +56,11 @@ public:
     vector<vector<char>> _road;
     game_road()
     {
-        for (size_t i = 0; i < road_y_size; ++i)
+        for (uint8_t i = 0; i < road_y_size; ++i)
         {
             std::vector<char> temp;
-            for (size_t j = 0; j < road_x_size; ++j)
-                temp.push_back(rand() % 666);
+            for (uint8_t j = 0; j < road_x_size; ++j)
+                temp.push_back(' ');
             _road.push_back(temp);
         }
     }
