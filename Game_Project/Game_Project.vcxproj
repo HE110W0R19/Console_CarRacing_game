@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cars_Settings.h" />
+    <ClInclude Include="Game_Menu_Settings.h" />
     <ClInclude Include="Map_Settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -10,8 +10,9 @@ random_device Rand;
 const uint8_t map_y_size = 45;
 const uint8_t map_x_size = 170;
 
-const uint8_t road_y_size = 41;
+const uint8_t road_y_size = 55;
 const uint8_t road_x_size = 101;
+uint8_t road_y_spawn_cord = 41;
 
 class game_map
 {
@@ -57,7 +58,7 @@ public:
 public:
     vector<vector<char>> _road;
     game_road();
-    void create_road(game_map& tmp_map);
+    void create_road();
 };
 
 game_road::game_road()
@@ -71,16 +72,30 @@ game_road::game_road()
     }
 }
 
-void game_road::create_road(game_map& tmp_map)
+void game_road::create_road()
 {
     for (uint8_t i = 0; i < road_y_size; ++i)
     {
         for (uint8_t j = 0; j < road_x_size; ++j)
         {
+            /////add lines
             if (j == 0 || j == road_x_size - 1 || j == 49 || j == 50)
                 _road[i][j] = 221;
+            /////add left chipper
+            else if (j == 7 && i % 2 != 0)
+                _road[i][j] = 185;
+            else if (j == 6 && i % 2 != 0)
+                _road[i][j] = 201;
+            ////add right chipper
+            else if (j == 94 && i % 2 != 0)
+                _road[i][j] = 204;
+            else if (j == 95 && i % 2 != 0)
+                _road[i][j] = 187;
+            /////////////////////////
+            else if ((j == 94 || j == 7) && i % 2 == 0)
+                _road[i][j] = 186;//adding center fender for left and right fender
             else if (j % 10 == 0 && i % 2 == 0)
-                _road[i][j] = 254;
+                _road[i][j] = 254;//add dividing lines
             else
                 _road[i][j] = ' ';
         }

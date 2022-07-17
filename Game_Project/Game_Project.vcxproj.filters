@@ -26,5 +26,8 @@
     <ClInclude Include="Cars_Settings.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
+    <ClInclude Include="Game_Menu_Settings.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

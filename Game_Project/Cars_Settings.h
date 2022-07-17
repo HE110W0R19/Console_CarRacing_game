@@ -78,7 +78,7 @@ inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_r
         }
         tmp_road._road[j][i] = t;
     }
-    for (uint8_t i = 0, y = tmp_road.spawn_cord_y; i < road_y_size; ++i, ++y)
+    for (uint8_t i = 0, y = tmp_road.spawn_cord_y; i < road_y_spawn_cord; ++i, ++y)
     {
         for (uint8_t j = 0, x = tmp_road.spawn_cord_x; j < road_x_size; ++j, ++x)
         {
