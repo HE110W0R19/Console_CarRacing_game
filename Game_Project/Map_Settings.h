@@ -16,12 +16,15 @@ const uint8_t road_x_size = 101;
 class game_map
 {
 public:
-    char** _map = new char* [map_y_size] {};
+    vector<vector<char>> _map;
     game_map()
     {
-        for (uint16_t i = 0; i < map_y_size; ++i)
+        for (size_t i = 0; i < map_y_size; ++i)
         {
-            _map[i] = new char[map_x_size];
+            std::vector<char> temp;
+            for (size_t j = 0; j < map_x_size; ++j)
+                temp.push_back(rand() % 666);
+            _map.push_back(temp);
         }
 
         for (uint16_t i = 0; i < map_y_size; ++i)
@@ -50,12 +53,15 @@ public:
     uint8_t spawn_cord_x = 10;
     uint8_t spawn_cord_y = 2;
 public:
-    char** _road = new char* [road_y_size] {};
+    vector<vector<char>> _road;
     game_road()
     {
-        for (uint16_t i = 0; i < road_y_size; ++i)
+        for (size_t i = 0; i < road_y_size; ++i)
         {
-            _road[i] = new char[road_x_size];
+            std::vector<char> temp;
+            for (size_t j = 0; j < road_x_size; ++j)
+                temp.push_back(rand() % 666);
+            _road.push_back(temp);
         }
     }
     void create_road(game_map& tmp_map)

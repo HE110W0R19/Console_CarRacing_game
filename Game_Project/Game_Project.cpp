@@ -23,7 +23,7 @@ int main()
     uint8_t car_move_cord_y = 30;
 
     game_map test_map;
-    player_car_type_2 test_car;
+    player_car_type_1 test_car;
     game_road test_road;
 
     test_road.create_road(test_map);

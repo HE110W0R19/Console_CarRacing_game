@@ -14,18 +14,21 @@ protected:
     uint8_t car_x_size = 7;
     uint8_t car_y_size = 7;
 public:
-    char** _car = new char* [car_y_size] {};
+    vector<vector<char> > _car;
     player_car_type_1();   
     virtual void create_car(game_map& tmp_map);      
-    void game_car_move(game_map& tmp_map, game_road& tmp_road,
+    virtual void game_car_move(game_map& tmp_map, game_road& tmp_road,
         uint8_t _car_cord_x, uint8_t _car_cord_y);
 };
 
 inline player_car_type_1::player_car_type_1()
 {
-    for (uint8_t i = 0; i < car_y_size; ++i)
+    for (size_t i = 0; i < car_y_size; ++i)
     {
-        _car[i] = new char[car_x_size];
+        std::vector<char> temp;
+        for (size_t j = 0; j < car_x_size; ++j)
+            temp.push_back(rand() % 666);
+        _car.push_back(temp);
     }
 }
 
@@ -97,8 +100,6 @@ private:
     uint8_t default_spawn_cord_x = 72;
     uint8_t default_spawn_cord_y = 30;
 public:
-    void game_car_move(game_map& tmp_map, game_road& tmp_road,
-        uint8_t _car_cord_x, uint8_t _car_cord_y);
     void create_car(game_map& tmp_map);
 };
 
@@ -133,35 +134,6 @@ void player_car_type_2::create_car(game_map& tmp_map)
             {
                 tmp_map._map[y][x] = _car[i][j];
             }
-        }
-    }
-}
-
-void player_car_type_2::game_car_move(game_map& tmp_map, game_road& tmp_road,
-    uint8_t _car_cord_x, uint8_t _car_cord_y)
-{
-    for (int i = 0; i < road_x_size; i++)
-    {
-        char t = tmp_road._road[1][i];
-        int j;
-        for (j = 0; j < road_y_size - 1; j++)
-        {
-            tmp_road._road[j][i] = tmp_road._road[j + 1][i];
-        }
-        tmp_road._road[j][i] = t;
-    }
-    for (uint8_t i = 0, y = 2; i < road_y_size; ++i, ++y)
-    {
-        for (uint8_t j = 0, x = 10; j < road_x_size; ++j, ++x)
-        {
-            tmp_map._map[y][x] = tmp_road._road[i][j];
-        }
-    }
-    for (uint8_t i = 0, y = _car_cord_y; i < car_y_size; ++i, ++y)
-    {
-        for (uint8_t j = 0, x = _car_cord_x; j < car_x_size; ++j, ++x)
-        {
-            tmp_map._map[y][x] = _car[i][j];
         }
     }
 }
