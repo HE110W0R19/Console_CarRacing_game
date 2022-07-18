@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include "Map_Settings.h"
+#include "Game_Menu_Settings.h"
 
 //car1==================================================
 class player_car_type_1
@@ -68,6 +69,7 @@ inline void player_car_type_1::create_car(game_map& tmp_map)
 inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_road,
     uint8_t _car_cord_x, uint8_t _car_cord_y)
 {
+    //road animation
     for (uint8_t  i = 0; i < road_x_size; i++)
     {
         char t = tmp_road._road[1][i];
@@ -78,6 +80,7 @@ inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_r
         }
         tmp_road._road[j][i] = t;
     }
+    //add road to map
     for (uint8_t i = 0, y = tmp_road.spawn_cord_y; i < road_y_spawn_cord; ++i, ++y)
     {
         for (uint8_t j = 0, x = tmp_road.spawn_cord_x; j < road_x_size; ++j, ++x)
@@ -85,6 +88,7 @@ inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_r
             tmp_map._map[y][x] = tmp_road._road[i][j];
         }
     }
+    //add car to road
     for (uint8_t i = 0, y = _car_cord_y; i < car_y_size; ++i, ++y)
     {
         for (uint8_t j = 0, x = _car_cord_x; j < car_x_size; ++j, ++x)

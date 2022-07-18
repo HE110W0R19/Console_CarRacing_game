@@ -2,14 +2,41 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <conio.h>
+#include <stdio.h>
 
-void setcur(int x, int y)//screan clear
+void setcur(int x, int y, int speed)//screan clear
 {
+	Sleep(speed);
 	COORD coord;
 	coord.X = x;
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 };
+
+bool game_start_key()
+{
+	system("cls");
+	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	cout << "\t\t\t\t\t\t\t\t 000    000    0000   000    000     1  0   0000  0   0" << endl;
+	cout << "\t\t\t\t\t\t\t\t1   1  1   1   1     0      0        1 0    1     0   0" << endl;
+	cout << "\t\t\t\t\t\t\t\t1000   1000    100    000    000     10     100    101 " << endl;
+	cout << "\t\t\t\t\t\t\t\t1      1   1   1         0      0    1 0    1       1  " << endl;
+	cout << "\t\t\t\t\t\t\t\t1      1    1  0000   000    000     1  0   0000    1  " << endl;
+
+	char key = NULL;
+	bool tmp = true;
+	while (tmp)
+	{
+		if (_kbhit())
+		{
+			if (key == ' ')
+				tmp = false;
+				return tmp;
+		}
+	}
+	return true;
+}
 
 void game_over_print()
 {
