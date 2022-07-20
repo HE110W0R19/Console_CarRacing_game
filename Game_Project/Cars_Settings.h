@@ -17,7 +17,7 @@ protected:
 public:
     vector<vector<char> > _car;
     player_car_type_1();   
-    void create_car(game_map& tmp_map);      
+    virtual void create_car(game_map& tmp_map);      
     virtual void game_car_move(game_map& tmp_map, game_road& tmp_road,
         uint8_t _car_cord_x, uint8_t _car_cord_y);
 };
@@ -56,27 +56,19 @@ inline void player_car_type_1::create_car(game_map& tmp_map)
             _car[1][6] = 219; _car[5][6] = 219;//right wheels
         }
     }
-    //add car to map
-    for (uint8_t i = 0, y = default_spawn_cord_y; i < car_y_size; ++i, ++y)
-    {
-        for (uint8_t j = 0, x = default_spawn_cord_x; j < car_x_size; ++j, ++x)
-        {
-            tmp_map._map[y][x] = _car[i][j];
-        }
-    }
 }
 
 inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_road,
     uint8_t _car_cord_x, uint8_t _car_cord_y)
 {
     //road animation
-    for (uint8_t  i = 0; i < road_x_size; i++)
+    for (uint8_t i = 0; i < road_x_size; i++)
     {
-        char t = tmp_road._road[1][i];
-        uint8_t j;
-        for (j = 0; j < road_y_size - 1; j++)
+        char t = tmp_road._road[road_y_size-2][i];
+        uint8_t j = 0;
+        for (j = road_y_size-1; j > 0; --j)
         {
-            tmp_road._road[j][i] = tmp_road._road[j+1][i];
+            tmp_road._road[j][i] = tmp_road._road[j - 1][i];
         }
         tmp_road._road[j][i] = t;
     }
@@ -131,13 +123,56 @@ void player_car_type_2::create_car(game_map& tmp_map)
                 _car[1][6] = 222; _car[5][6] = 222;//right wheels
             }
         }
-        //add car to map
-        for (uint8_t i = 0, y = default_spawn_cord_y; i < car_y_size; ++i, ++y)
+    }
+}
+
+class _city_buss_type1
+{
+private:
+    uint8_t random_spawn_cord_x = 62;
+    uint8_t random_spawn_cord_y = 1;
+protected:
+    uint8_t buss_y_size = 10;
+    uint8_t buss_x_size = 7;
+public:
+    vector<vector<char> > _buss;
+    _city_buss_type1();
+    virtual void create_buss(game_road& tmp);
+};
+
+inline _city_buss_type1::_city_buss_type1()
+{
+    for (uint8_t i = 0; i < buss_y_size; ++i)
+    {
+        std::vector<char> temp;
+        for (uint8_t j = 0; j < buss_x_size; ++j)
+            temp.push_back(' ');
+        _buss.push_back(temp);
+    }
+
+}
+
+inline void _city_buss_type1::create_buss(game_road& tmp_road)
+{
+    for (uint8_t i = 0; i < buss_y_size; ++i)
+    {
+        for (uint8_t j = 0; j < buss_x_size; ++j)
         {
-            for (uint8_t j = 0, x = default_spawn_cord_x; j < car_x_size; ++j, ++x)
-            {
-                tmp_map._map[y][x] = _car[i][j];
-            }
+            _buss[i][j] = 219;
+        }
+    }
+    for (uint8_t i = 0, y = random_spawn_cord_y; i < buss_y_size; ++i, ++y)
+    {
+        for (uint8_t j = 0, x = random_spawn_cord_x; j < buss_x_size; ++j, ++x)
+        {
+            tmp_road._road[y][x] = _buss[i][j];
+        }
+    }
+    for (uint8_t i = 0, y = random_spawn_cord_y; i < buss_y_size; ++i, ++y)
+    {
+        for (uint8_t j = 0, x = random_spawn_cord_x; j < buss_x_size; ++j, ++x)
+        {
+            tmp_road._road[y][x] = _buss[i][j];
         }
     }
 }

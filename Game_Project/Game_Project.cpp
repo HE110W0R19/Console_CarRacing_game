@@ -20,27 +20,30 @@ int main()
     system("mode con cols=180 lines=50");//start console window size
     uint8_t car_move_cord_x = 72;
     uint8_t car_move_cord_y = 30;
-    uint32_t car_speed = 1050;
+
+    uint32_t car_speed = 1000;
+    uint32_t car_score = 0;
 
     game_map test_map;
     player_car_type_1 test_car;
     game_road test_road;
+    _city_buss_type1 test_buss1;
 
     test_road.create_road();
     test_car.create_car(test_map);
-    
+    test_buss1.create_buss(test_road);
 
-    game_start_key();
-    game_start_time();
+    /*game_start_key();
+    game_start_time();*/
 
     while (true)
     {
         if (_kbhit())
         {
             char key = _getch();
-
-            if (key == 'd' || key == 'D')
+            switch (key)
             {
+            case 'd':
                 car_move_cord_x += 2;
                 if (car_move_cord_x >= zone_right_size)
                 {
@@ -48,9 +51,8 @@ int main()
                     game_over_print();
                     return 0;
                 }
-            }
-            if (key == 'a' || key == 'A')
-            {
+                break;
+            case 'a':
                 car_move_cord_x -= 2;
                 if (car_move_cord_x <= zone_left_size)
                 {
@@ -58,31 +60,37 @@ int main()
                     game_over_print();
                     return 0;
                 }
-            }
-            if (key == 'w' || key == 'W')
-            {
+                break;
+            case 'w':
                 --car_move_cord_y;
+                car_score += 2;
                 if (car_move_cord_y <= zone_front_size)
                 {
                     ++car_move_cord_y;
                 }
-            }
-            if (key == 's' || key == 'S')
-            {
+                break;
+            case 's':
                 ++car_move_cord_y;
+                car_score -= 2;//score -2 because S==brake and car stop
                 if (car_move_cord_y >= zone_behind_size)
                 {
                     --car_move_cord_y;
                 }
+                break;
+            default:
+
+                break;
             }
         }
         test_car.game_car_move(test_map, test_road,
-            car_move_cord_x, car_move_cord_y);
+            car_move_cord_x, car_move_cord_y); 
+        car_score += 2;
         game_map_draw(test_map);
+        cout << "...Your Score:" << car_score << endl;
         setcur(0, 0, car_speed);//3-num -> speed;
         if (car_speed > 0)
-            car_speed -= 150;//speed up at start
-    }
+            car_speed -= 100;//speed up at start
+    } 
     system("pause");
     return 0;
 }
