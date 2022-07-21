@@ -4,7 +4,6 @@
 #include <random>
 
 using namespace std;
-random_device Rand;
 
 //game map sizes
 const uint8_t map_y_size = 45;

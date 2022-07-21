@@ -33,15 +33,14 @@ int main()
     test_car.create_car(test_map);
     test_buss1.create_buss(test_road);
 
-    game_start_key();
-    game_start_time();
-
-    test_buss1.add_buss_to_road(test_road);
+    /*game_start_key();
+    game_start_time();*/
 
     while (true)
     {
         if (_kbhit())
         {
+            //car move logic and move keys
             char key = _getch();
             switch (key)
             {
@@ -77,6 +76,7 @@ int main()
                 if (car_move_cord_y >= zone_behind_size)
                 {
                     --car_move_cord_y;
+                    car_speed = 500;
                 }
                 break;
             default:
@@ -84,14 +84,24 @@ int main()
                 break;
             }
         }
+        //city cars spawn
+        if (car_score % 100 == 0) 
+        {
+            uint8_t spawn_cord_x = spawn_cords[Rand() % 9];
+            test_buss1.add_buss_to_road(test_road,spawn_cord_x);
+        }       
+        //player car
         test_car.game_car_move(test_map, test_road,
             car_move_cord_x, car_move_cord_y); 
-        car_score += 2;
-        game_map_draw(test_map);
-        cout << "...Your Score:" << car_score << endl;
-        setcur(0, 0, car_speed);//3-num -> speed;
         if (car_speed > 0)
             car_speed -= 100;//speed up at start
+        //player score
+        car_score += 2;
+        //print map
+        game_map_draw(test_map);
+        cout << "...Your Score:" << car_score << endl;
+        //screan cleaner
+        setcur(0, 0, car_speed);//3-num -> speed;
     } 
     system("pause");
     return 0;

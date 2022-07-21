@@ -5,6 +5,8 @@
 #include "Map_Settings.h"
 #include "Game_Menu_Settings.h"
 
+random_device Rand;
+
 //car1==================================================
 class player_car_type_1
 {
@@ -111,10 +113,12 @@ void player_car_type_2::create_car(game_map& tmp_map)
     }
 }
 
+//for city bot cars
+vector<int> spawn_cords{ 12,22,32,42,52,62,72,82 };
+
 class _city_buss_type1
 {
 private:
-    uint8_t random_spawn_cord_x = 62;
     uint8_t random_spawn_cord_y = 1;
 protected:
     uint8_t buss_y_size = 10;
@@ -123,7 +127,7 @@ public:
     vector<vector<char> > _buss;
     _city_buss_type1();
     virtual void create_buss(game_road& tmp);
-    virtual void add_buss_to_road(game_road& tmp);
+    virtual void add_buss_to_road(game_road& tmp, int tmp_spawn_cord_x);
 };
 
 inline _city_buss_type1::_city_buss_type1()
@@ -134,6 +138,7 @@ inline _city_buss_type1::_city_buss_type1()
         for (uint8_t j = 0; j < buss_x_size; ++j)
             temp.push_back(' ');
         _buss.push_back(temp);
+        
     }
 
 }
@@ -149,11 +154,11 @@ inline void _city_buss_type1::create_buss(game_road& tmp_road)
     }
 }
 
-inline void _city_buss_type1::add_buss_to_road(game_road& tmp_road)
+inline void _city_buss_type1::add_buss_to_road(game_road& tmp_road, int tmp_spawn_cord_x)
 {
     for (uint8_t i = 0, y = random_spawn_cord_y; i < buss_y_size; ++i, ++y)
     {
-        for (uint8_t j = 0, x = random_spawn_cord_x; j < buss_x_size; ++j, ++x)
+        for (uint8_t j = 0, x = tmp_spawn_cord_x; j < buss_x_size; ++j, ++x)
         {
             tmp_road._road[y][x] = _buss[i][j];
         }
