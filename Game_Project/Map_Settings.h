@@ -78,11 +78,16 @@ inline void game_road::road_animation()
     //road animation
     for (uint8_t i = 0; i < road_x_size; i++)
     {
+        char clear = this->_road[road_y_size - 1][i];
         char t = this->_road[road_y_size - 2][i];
         uint8_t j = 0;
         for (j = road_y_size - 1; j > 0; --j)
         {
             this->_road[j][i] = this->_road[j - 1][i];
+            if (j == road_y_spawn_cord)
+            {
+                this->_road[j][i] = clear;
+            }
         }
         this->_road[j][i] = t;
     }

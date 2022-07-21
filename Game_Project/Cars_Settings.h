@@ -119,7 +119,7 @@ vector<int> spawn_cords{ 12,22,32,42,52,62,72,82 };
 class _city_buss_type1
 {
 private:
-    uint8_t random_spawn_cord_y = 1;
+    uint8_t spawn_cord_y = 1;
 protected:
     uint8_t buss_y_size = 10;
     uint8_t buss_x_size = 7;
@@ -156,7 +156,7 @@ inline void _city_buss_type1::create_buss(game_road& tmp_road)
 
 inline void _city_buss_type1::add_buss_to_road(game_road& tmp_road, int tmp_spawn_cord_x)
 {
-    for (uint8_t i = 0, y = random_spawn_cord_y; i < buss_y_size; ++i, ++y)
+    for (uint8_t i = 0, y = spawn_cord_y; i < buss_y_size; ++i, ++y)
     {
         for (uint8_t j = 0, x = tmp_spawn_cord_x; j < buss_x_size; ++j, ++x)
         {

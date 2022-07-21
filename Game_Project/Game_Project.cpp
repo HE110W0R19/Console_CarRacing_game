@@ -40,7 +40,6 @@ int main()
     {
         if (_kbhit())
         {
-            //car move logic and move keys
             char key = _getch();
             switch (key)
             {
@@ -71,7 +70,7 @@ int main()
                 }
                 break;
             case 's':
-                ++car_move_cord_y;
+                car_move_cord_y+=2;
                 car_score -= 2;//score -2 because S==brake and car stop
                 if (car_move_cord_y >= zone_behind_size)
                 {
@@ -84,8 +83,8 @@ int main()
                 break;
             }
         }
-        //city cars spawn
-        if (car_score % 100 == 0) 
+        //city cars
+        if (car_score % 50 == 0) 
         {
             uint8_t spawn_cord_x = spawn_cords[Rand() % 9];
             test_buss1.add_buss_to_road(test_road,spawn_cord_x);
