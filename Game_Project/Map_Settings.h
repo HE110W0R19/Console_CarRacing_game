@@ -58,6 +58,7 @@ public:
     vector<vector<char>> _road;
     game_road();
     void create_road();
+    void clear_road();
     void add_road_to_map(game_map& tmp_map);
     void road_animation();
 };
@@ -78,18 +79,24 @@ inline void game_road::road_animation()
     //road animation
     for (uint8_t i = 0; i < road_x_size; i++)
     {
-        char clear = this->_road[road_y_size - 1][i];
-        char t = this->_road[road_y_size - 2][i];
+        char t = _road[road_y_size - 2][i];
         uint8_t j = 0;
         for (j = road_y_size - 1; j > 0; --j)
         {
-            this->_road[j][i] = this->_road[j - 1][i];
-            if (j == road_y_spawn_cord)
-            {
-                this->_road[j][i] = clear;
-            }
+            this->_road[j][i] = _road[j - 1][i];
         }
         this->_road[j][i] = t;
+    }
+}
+
+inline void game_road::clear_road()
+{
+    for (uint8_t i = 0; i < road_x_size; i++)
+    {
+        char clear1 = _road[road_y_size - 1][i];
+        char clear2 = _road[road_y_size - 2][i];
+        _road[42][i] = clear1;
+        _road[43][i] = clear2;
     }
 }
 

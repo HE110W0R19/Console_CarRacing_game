@@ -86,7 +86,7 @@ int main()
         //city cars
         if (car_score % 50 == 0) 
         {
-            uint8_t spawn_cord_x = spawn_cords[Rand() % 9];
+            uint8_t spawn_cord_x = spawn_cords[Rand() % 8];
             test_buss1.add_buss_to_road(test_road,spawn_cord_x);
         }       
         //player car
@@ -100,6 +100,7 @@ int main()
         game_map_draw(test_map);
         cout << "...Your Score:" << car_score << endl;
         //screan cleaner
+        test_road.clear_road();
         setcur(0, 0, car_speed);//3-num -> speed;
     } 
     system("pause");
