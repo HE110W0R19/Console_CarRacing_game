@@ -59,6 +59,8 @@ public:
     vector<vector<char>> _road;
     game_road();
     void create_road();
+    void add_road_to_map(game_map& tmp_map);
+    void road_animation();
 };
 
 game_road::game_road()
@@ -69,6 +71,32 @@ game_road::game_road()
         for (uint8_t j = 0; j < road_x_size; ++j)
             temp.push_back(' ');
         _road.push_back(temp);
+    }
+}
+
+inline void game_road::road_animation()
+{
+    //road animation
+    for (uint8_t i = 0; i < road_x_size; i++)
+    {
+        char t = this->_road[road_y_size - 2][i];
+        uint8_t j = 0;
+        for (j = road_y_size - 1; j > 0; --j)
+        {
+            this->_road[j][i] = this->_road[j - 1][i];
+        }
+        this->_road[j][i] = t;
+    }
+}
+
+inline void game_road::add_road_to_map(game_map& tmp_map)
+{
+    for (uint8_t i = 0, y = spawn_cord_y; i < road_y_spawn_cord; ++i, ++y)
+    {
+        for (uint8_t j = 0, x = spawn_cord_x; j < road_x_size; ++j, ++x)
+        {
+            tmp_map._map[y][x] = _road[i][j];
+        }
     }
 }
 

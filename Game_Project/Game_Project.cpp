@@ -33,8 +33,10 @@ int main()
     test_car.create_car(test_map);
     test_buss1.create_buss(test_road);
 
-    /*game_start_key();
-    game_start_time();*/
+    game_start_key();
+    game_start_time();
+
+    test_buss1.add_buss_to_road(test_road);
 
     while (true)
     {

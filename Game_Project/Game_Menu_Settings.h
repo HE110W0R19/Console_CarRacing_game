@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <stdio.h>
 
+using namespace std;
+
 void setcur(int x, int y, int speed)//screan clear
 {
 	Sleep(speed);
