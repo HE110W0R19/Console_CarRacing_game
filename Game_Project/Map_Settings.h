@@ -9,9 +9,9 @@ using namespace std;
 const uint8_t map_y_size = 45;
 const uint8_t map_x_size = 170;
 
-const uint8_t road_y_size = 55;
+const uint8_t road_y_size = 75;
 const uint8_t road_x_size = 101;
-uint8_t road_y_spawn_cord = 41;
+uint8_t road_y_spawn_cord = 53;
 
 class game_map
 {
@@ -95,14 +95,14 @@ inline void game_road::clear_road()
     {
         char clear1 = _road[road_y_size - 1][i];
         char clear2 = _road[road_y_size - 2][i];
-        _road[42][i] = clear1;
-        _road[43][i] = clear2;
+        _road[52][i] = clear1;
+        _road[53][i] = clear2;
     }
 }
 
 inline void game_road::add_road_to_map(game_map& tmp_map)
 {
-    for (uint8_t i = 0, y = spawn_cord_y; i < road_y_spawn_cord; ++i, ++y)
+    for (uint8_t i = 12, y = spawn_cord_y; i < road_y_spawn_cord; ++i, ++y)
     {
         for (uint8_t j = 0, x = spawn_cord_x; j < road_x_size; ++j, ++x)
         {

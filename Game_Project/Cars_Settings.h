@@ -76,17 +76,18 @@ inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_r
         }
     }
 }
-//car 2===============================================
-class player_car_type_2 : public player_car_type_1
+//city bot car ===============================================
+class _city_car_1 : public player_car_type_1
 {
 private:
     uint8_t default_spawn_cord_x = 72;
-    uint8_t default_spawn_cord_y = 30;
+    uint8_t default_spawn_cord_y = 1;
 public:
     void create_car(game_map& tmp_map);
+    virtual void add_car_to_road(game_road& tmp, int tmp_spawn_cord_x, int tmp_spawn_cord_y);
 };
 
-void player_car_type_2::create_car(game_map& tmp_map)
+void _city_car_1::create_car(game_map& tmp_map)
 {
     {
         // create car texture
@@ -113,9 +114,20 @@ void player_car_type_2::create_car(game_map& tmp_map)
     }
 }
 
-//for city bot cars
-vector<int> spawn_cords{ 12,22,32,42,52,62,72,82 };
+inline void _city_car_1::add_car_to_road(game_road& tmp_road, int tmp_spawn_cord_x, int tmp_spawn_cord_y)
+{
+    for (uint8_t i = 0, y = tmp_spawn_cord_y; i < car_y_size; ++i, ++y)
+    {
+        for (uint8_t j = 0, x = tmp_spawn_cord_x; j < car_x_size; ++j, ++x)
+        {
+            tmp_road._road[y][x] = _car[i][j];
+        }
+    }
+}
 
+//for city bot cars
+vector<int> spawn_cords_x{ 12,22,32,42,52,62,72,82 };
+vector<int> spawn_cords_y{1,5,10};
 class _city_buss_type1
 {
 private:
@@ -127,7 +139,7 @@ public:
     vector<vector<char> > _buss;
     _city_buss_type1();
     virtual void create_buss(game_road& tmp);
-    virtual void add_buss_to_road(game_road& tmp, int tmp_spawn_cord_x);
+    virtual void add_buss_to_road(game_road& tmp_road, int tmp_spawn_cord_x, int tmp_spawn_cord_y);
 };
 
 inline _city_buss_type1::_city_buss_type1()
@@ -137,8 +149,7 @@ inline _city_buss_type1::_city_buss_type1()
         std::vector<char> temp;
         for (uint8_t j = 0; j < buss_x_size; ++j)
             temp.push_back(' ');
-        _buss.push_back(temp);
-        
+        _buss.push_back(temp);       
     }
 
 }
@@ -149,12 +160,23 @@ inline void _city_buss_type1::create_buss(game_road& tmp_road)
     {
         for (uint8_t j = 0; j < buss_x_size; ++j)
         {
-            _buss[i][j] = 219;
+            if (((i == 0 || i == 9) && (j >= 1 && j <= buss_x_size)))
+                _buss[i][j] = 196;// peredniy bamper i zadniy
+            else if ((i >= 2 || i <= 4) && j == 0)
+                _buss[i][j] = 195;//bokovina levaya
+            else if ((i >= 2 || i <= 4) && j == 6)
+                _buss[i][j] = 180;// bokovina pravaya
+            else
+                _buss[i][j] = 178;
+            _buss[0][0] = 218; _buss[9][0] = 192;//levie krilya 
+            _buss[0][6] = 191; _buss[9][6] = 217;//pravie krilya
+            _buss[1][0] = 221; _buss[7][0] = 221;//left wheels
+            _buss[1][6] = 222; _buss[7][6] = 222;//right wheels
         }
     }
 }
 
-inline void _city_buss_type1::add_buss_to_road(game_road& tmp_road, int tmp_spawn_cord_x)
+inline void _city_buss_type1::add_buss_to_road(game_road& tmp_road, int tmp_spawn_cord_x, int tmp_spawn_cord_y)
 {
     for (uint8_t i = 0, y = spawn_cord_y; i < buss_y_size; ++i, ++y)
     {
