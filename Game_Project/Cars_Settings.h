@@ -77,7 +77,7 @@ inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_r
     }
 }
 //city bot car ===============================================
-class _city_car_1 : public player_car_type_1
+class _city_car_type1 : public player_car_type_1
 {
 private:
     uint8_t default_spawn_cord_x = 72;
@@ -87,7 +87,7 @@ public:
     virtual void add_car_to_road(game_road& tmp, int tmp_spawn_cord_x, int tmp_spawn_cord_y);
 };
 
-void _city_car_1::create_car(game_map& tmp_map)
+void _city_car_type1::create_car(game_map& tmp_map)
 {
     {
         // create car texture
@@ -114,7 +114,7 @@ void _city_car_1::create_car(game_map& tmp_map)
     }
 }
 
-inline void _city_car_1::add_car_to_road(game_road& tmp_road, int tmp_spawn_cord_x, int tmp_spawn_cord_y)
+inline void _city_car_type1::add_car_to_road(game_road& tmp_road, int tmp_spawn_cord_x, int tmp_spawn_cord_y)
 {
     for (uint8_t i = 0, y = tmp_spawn_cord_y; i < car_y_size; ++i, ++y)
     {

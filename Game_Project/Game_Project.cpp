@@ -11,10 +11,10 @@ using namespace std;
 //game zone sizes
 const uint8_t zone_left_size = 16;//left crush zone
 const uint8_t zone_right_size = road_x_size-3;//right crush zone
-const uint8_t zone_front_size = 1;//front crush zone
-const uint8_t zone_behind_size = 37;//behind crush zone
+const uint8_t zone_front_size = 1;//front game zone
+const uint8_t zone_behind_size = 37;//behind game zone
 
-vector<int> difficulty_level{70,50,25,12};//0-easy 1-medium 2-hard 3-impossible
+vector<int> difficulty_level{70,50,25};//0-easy 1-medium 2-hard 3-impossible
 
 int main()
 {
@@ -29,16 +29,16 @@ int main()
     uint32_t car_speed = 1000;
     uint32_t car_score = 0;
 
-    game_map test_map;
-    player_car_type_1 test_car;
-    game_road test_road;
-    _city_buss_type1 test_bot_buss1;
-    _city_car_1 test_bot_car1;
+    game_map _map;
+    player_car_type_1 _car;
+    game_road _road;
+    _city_buss_type1 _bot_buss1;
+    _city_car_type1 _bot_car1;
 
-    test_road.create_road();
-    test_car.create_car(test_map);
-    test_bot_buss1.create_buss(test_road);
-    test_bot_car1.create_car(test_map);
+    _road.create_road();
+    _car.create_car(_map);
+    _bot_buss1.create_buss(_road);
+    _bot_car1.create_car(_map);
     
 
     /*game_start_key();
@@ -94,7 +94,7 @@ int main()
         //add_city cars
         if (car_score % 25 == 0)
         {
-            uint8_t car_amount = 1;
+            uint8_t car_amount = 2;
             uint8_t i = 0;
             for (; i < car_amount; ++i)
             {
@@ -104,8 +104,8 @@ int main()
                 spawn_cord_y_car = spawn_cords_y[Rand() % 3];
                 if (spawn_cord_x_buss != spawn_cord_x_car && spawn_cord_y_buss != spawn_cord_y_car)
                 {
-                    test_bot_car1.add_car_to_road(test_road, spawn_cord_x_car, spawn_cord_y_car);
-                    test_bot_buss1.add_buss_to_road(test_road, spawn_cord_x_buss, spawn_cord_y_buss);
+                    _bot_car1.add_car_to_road(_road, spawn_cord_x_car, spawn_cord_y_car);
+                    _bot_buss1.add_buss_to_road(_road, spawn_cord_x_buss, spawn_cord_y_buss);
                 }
                 else
                     --i;
@@ -116,17 +116,17 @@ int main()
             }           
         }
         //player car
-        test_car.game_car_move(test_map, test_road,
+        _car.game_car_move(_map, _road,
             car_move_cord_x, car_move_cord_y);
         if (car_speed > 0)
             car_speed -= 100;//speed up at start
         //player score
         car_score += 2;
         //print map
-        game_map_draw(test_map);
+        game_map_draw(_map);
         cout << "...Your Score:" << car_score << endl;
         //screan cleaner
-        test_road.clear_road();
+        _road.clear_road();
         setcur(0, 0, car_speed);//3-num -> speed;
     }
     system("pause");
