@@ -101,3 +101,34 @@ void game_start_time()
 	system("cls");
 	SetConsoleTextAttribute(hColorMenu, 15);
 }
+
+void game_start_menu(int lvl)
+{
+	SetConsoleTextAttribute(hColorMenu, 14);
+	system("cls");
+	cout << "\n\n\n";
+	cout << "\t\t\t\t+-+-+-+-+ Select Game Difficulty -+-+-+-+-\n";
+	cout << "\t\t\t\t[1] - Eazy" << endl;
+	cout << "\t\t\t\t[2] - Medium" << endl;
+	cout << "\t\t\t\t[3] - Hard" << endl;
+	if (_kbhit)
+	{
+		char choise = _getch();
+		switch (choise)
+		{
+		case '1':
+			lvl = 1;
+			break;
+		case '2':
+			lvl = 2;
+			break;
+		case '3':
+			lvl = 2;
+			break;
+		default:
+			break;
+		}
+	}
+	system("cls");
+	SetConsoleTextAttribute(hColorMenu, 15);
+}

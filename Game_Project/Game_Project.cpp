@@ -7,14 +7,15 @@
 #include "Game_Menu_Settings.h"
 
 using namespace std;
-
+// w,a,s,d - car move // p - pause // 
 //game zone sizes
 const uint8_t zone_left_size = 16;//left crush zone
 const uint8_t zone_right_size = road_x_size-3;//right crush zone
 const uint8_t zone_front_size = 1;//front game zone
 const uint8_t zone_behind_size = 37;//behind game zone
 
-vector<int> difficulty_level{70,50,25};//0-easy 1-medium 2-hard 3-impossible
+vector<int> difficulty_level{70,50,25};//0-easy 1-medium 2-hard
+int difficulty_choise = 0;
 
 int main()
 {
@@ -29,20 +30,20 @@ int main()
     uint32_t car_speed = 1000;
     uint32_t car_score = 0;
 
-    game_map _map;
+    game_map player_map;
     player_car_type_1 _car;
     game_road _road;
     _city_buss_type1 _bot_buss1;
     _city_car_type1 _bot_car1;
 
     _road.create_road();
-    _car.create_car(_map);
+    _car.create_car(player_map);
     _bot_buss1.create_buss(_road);
-    _bot_car1.create_car(_map);
+    _bot_car1.create_car(player_map);
     
-
-    /*game_start_key();
-    game_start_time();*/
+    game_start_menu(difficulty_choise);
+    game_start_key();
+    game_start_time();
 
     while (true)
     {
@@ -86,15 +87,19 @@ int main()
                     car_speed = 500;
                 }
                 break;
+            case 'p':
+                game_start_key();
+                system("cls");
+                break;
             default:
 
                 break;
             }
         }
         //add_city cars
-        if (car_score % 25 == 0)
+        if (car_score % difficulty_level[difficulty_choise] == 0)
         {
-            uint8_t car_amount = 2;
+            uint8_t car_amount = 3;
             uint8_t i = 0;
             for (; i < car_amount; ++i)
             {
@@ -109,21 +114,17 @@ int main()
                 }
                 else
                     --i;
-                if (car_score % 800 == 0 && car_amount != 3)
-                {
-                    ++car_amount;
-                }
             }           
         }
         //player car
-        _car.game_car_move(_map, _road,
+        _car.game_car_move(player_map, _road,
             car_move_cord_x, car_move_cord_y);
         if (car_speed > 0)
             car_speed -= 100;//speed up at start
         //player score
         car_score += 2;
         //print map
-        game_map_draw(_map);
+        game_map_draw(player_map);
         cout << "...Your Score:" << car_score << endl;
         //screan cleaner
         _road.clear_road();
