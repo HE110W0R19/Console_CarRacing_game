@@ -102,10 +102,9 @@ void game_start_time()
 	SetConsoleTextAttribute(hColorMenu, 15);
 }
 
-void game_start_menu(int lvl)
+int game_start_menu(int lvl)
 {
 	SetConsoleTextAttribute(hColorMenu, 14);
-	system("cls");
 	cout << "\n\n\n";
 	cout << "\t\t\t\t+-+-+-+-+ Select Game Difficulty -+-+-+-+-\n";
 	cout << "\t\t\t\t[1] - Eazy" << endl;
@@ -126,6 +125,9 @@ void game_start_menu(int lvl)
 			lvl = 2;
 			break;
 		default:
+			system("cls");
+			cout << "Error choise! " << endl;
+			return game_start_menu(lvl);
 			break;
 		}
 	}

@@ -20,7 +20,7 @@ public:
     vector<vector<char> > _car;
     player_car_type_1();    
     virtual void create_car(game_map& tmp_map);
-    virtual void game_car_move(game_map& tmp_map, game_road& tmp_road,
+    virtual int game_car_move(game_map& tmp_map, game_road& tmp_road,
         uint8_t _car_cord_x, uint8_t _car_cord_y);
 };
 
@@ -60,13 +60,22 @@ inline void player_car_type_1::create_car(game_map& tmp_map)
     }
 }
 
-inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_road,
+inline int player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_road,
     uint8_t _car_cord_x, uint8_t _car_cord_y)
 {
     ////road animation
     tmp_road.road_animation();
     ////add road to map
     tmp_road.add_road_to_map(tmp_map);
+    //lose check logic
+    if (tmp_map._map[_car_cord_y][_car_cord_x] != ' '
+        && tmp_map._map[_car_cord_y][_car_cord_x] != 254
+        && tmp_map._map[_car_cord_y][_car_cord_x] != 186
+        && tmp_map._map[_car_cord_y][_car_cord_x] != 221
+        && tmp_map._map[_car_cord_y][_car_cord_x + 6] != ' ')
+    {
+        return 1;
+    }
     //add car to road
     for (uint8_t i = 0, y = _car_cord_y; i < car_y_size; ++i, ++y)
     {
@@ -75,6 +84,7 @@ inline void player_car_type_1::game_car_move(game_map& tmp_map, game_road& tmp_r
             tmp_map._map[y][x] = _car[i][j];
         }
     }
+    return 0;
 }
 //city bot car ===============================================
 class _city_car_type1 : public player_car_type_1
@@ -127,7 +137,7 @@ inline void _city_car_type1::add_car_to_road(game_road& tmp_road, int tmp_spawn_
 
 //for city bot cars
 vector<int> spawn_cords_x{ 12,22,32,42,52,62,72,82 };
-vector<int> spawn_cords_y{1,5,10};
+vector<int> spawn_cords_y{1,5,10,13};
 class _city_buss_type1
 {
 private:

@@ -58,7 +58,8 @@ int main()
                 {
                     Sleep(1200);
                     game_over_print();
-                    return 0;
+                    Sleep(3000);
+                    return main();
                 }
                 break;
             case 'a':
@@ -67,7 +68,8 @@ int main()
                 {
                     Sleep(1200);
                     game_over_print();
-                    return 0;
+                    Sleep(3000);
+                    return main();
                 }
                 break;
             case 'w':
@@ -104,9 +106,9 @@ int main()
             for (; i < car_amount; ++i)
             {
                 spawn_cord_x_buss = spawn_cords_x[Rand() % 8];
-                spawn_cord_y_buss = spawn_cords_y[Rand() % 3];
+                spawn_cord_y_buss = spawn_cords_y[Rand() % 4];
                 spawn_cord_x_car = spawn_cords_x[Rand() % 8];
-                spawn_cord_y_car = spawn_cords_y[Rand() % 3];
+                spawn_cord_y_car = spawn_cords_y[Rand() % 4];
                 if (spawn_cord_x_buss != spawn_cord_x_car && spawn_cord_y_buss != spawn_cord_y_car)
                 {
                     _bot_car1.add_car_to_road(_road, spawn_cord_x_car, spawn_cord_y_car);
@@ -114,7 +116,16 @@ int main()
                 }
                 else
                     --i;
-            }           
+            }
+        }
+        // lose check
+        if (_car.game_car_move(player_map, _road,
+            car_move_cord_x, car_move_cord_y) != false)
+        {
+            Sleep(1200);
+            game_over_print();
+            Sleep(3000);
+            return main();
         }
         //player car
         _car.game_car_move(player_map, _road,
