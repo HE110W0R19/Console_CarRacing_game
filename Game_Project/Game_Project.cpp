@@ -126,10 +126,7 @@ int main()
             game_over_print();
             Sleep(3000);
             return main();
-        }
-        //player car
-        _car.game_car_move(player_map, _road,
-            car_move_cord_x, car_move_cord_y);
+        }   
         if (car_speed > 0)
             car_speed -= 100;//speed up at start
         //player score
