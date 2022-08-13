@@ -4,6 +4,7 @@
 #include <vector>
 #include <conio.h>
 #include <stdio.h>
+#include <fstream>
 
 using namespace std;
 
@@ -102,14 +103,33 @@ void game_start_time()
 	SetConsoleTextAttribute(hColorMenu, 15);
 }
 
+void Save_player_record(int tmp_score)
+{
+	string Player_name = "";
+	string file_name = "Player_Records.txt";
+	system("cls");
+	SetConsoleTextAttribute(hColorMenu, 14);
+	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	cout << "\t\t\t\t\t\t\t\t...Write your name and we will save your record" << endl;
+	cout << "\t\t\t\t\t\t\t\t-> ";
+	cin >> Player_name;
+	ofstream fout;
+	fout.open(file_name, std::ios::app);
+	fout << "-> Player: " << Player_name << "\tScore: " << tmp_score << "\n";
+	fout << "............................................\n";
+	fout.close();
+	Player_name = "";
+	SetConsoleTextAttribute(hColorMenu, 15);
+}
+
 int game_start_menu(int lvl)
 {
 	SetConsoleTextAttribute(hColorMenu, 14);
-	cout << "\n\n\n";
-	cout << "\t\t\t\t+-+-+-+-+ Select Game Difficulty -+-+-+-+-\n";
-	cout << "\t\t\t\t[1] - Eazy" << endl;
-	cout << "\t\t\t\t[2] - Medium" << endl;
-	cout << "\t\t\t\t[3] - Hard" << endl;
+	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	cout << "\t\t\t\t\t\t\t\t+-+-+-+-+ Select Game Difficulty -+-+-+-+-\n\n";
+	cout << "\t\t\t\t\t\t\t\t\t\t[1] - Eazy" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\t[2] - Medium" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\t[3] - Hard" << endl;
 	if (_kbhit)
 	{
 		char choise = _getch();
@@ -126,7 +146,7 @@ int game_start_menu(int lvl)
 			break;
 		default:
 			system("cls");
-			cout << "Error choise! " << endl;
+			cout << "\t\t\t\t\t\t\t\t!!!Error choise!!! " << endl;
 			return game_start_menu(lvl);
 			break;
 		}
