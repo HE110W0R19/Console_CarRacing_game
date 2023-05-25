@@ -1,0 +1,60 @@
+﻿  Game_Project.cpp
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(39,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(41,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(43,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(46,18): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(46,37): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(47,20): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(47,41): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(48,20): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(48,41): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(49,21): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(122,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(125,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(127,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(130,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(132,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(135,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Map_Settings.h(137,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Game_Menu_Settings.h(133,6): warning C4551: в вызове функции отсутствует список аргументов
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(46,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(48,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(50,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(52,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(54,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(55,26): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(55,44): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(56,26): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(56,44): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(57,26): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(57,44): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(58,26): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(58,44): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(109,34): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(111,34): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(113,34): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(115,34): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(117,34): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(118,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(118,48): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(119,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(119,48): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(120,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(120,48): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(121,30): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(121,48): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(174,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(176,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(178,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(180,31): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(181,27): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(181,46): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(182,27): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(182,46): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(183,27): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(183,46): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(184,27): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Cars_Settings.h(184,46): warning C4309: =: усечение константного значения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Game_Menu_Settings.h(156): warning C4715: game_start_menu: значение возвращается не при всех путях выполнения
+C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\Game_Project\Game_Project.cpp(162): warning C4717: main: рекурсия на всех путях выполнения, функция вызовет переполнение стека
+  Game_Project.vcxproj -> C:\Users\TuF\Documents\GitHub\Console_CarRacing_game\x64\Debug\Game_Project.exe
